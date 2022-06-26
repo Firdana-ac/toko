@@ -1,5 +1,6 @@
 <?php
-$session = session(); 
+$session = session();  
+$uri = service('uri'); 
 ?>
 	<!-- Header Section Begin -->
     <header class="header-section">
@@ -65,12 +66,12 @@ $session = session();
                     </div>
                 </div>
                 <nav class="nav-menu mobile-menu">
-                    <ul>
-                        <li class="active"><a href="<?= site_url('/') ?>">Home</a></li>
-                        <li><a href="<?= site_url('shop') ?>">Shop</a></li>  
-                        <li><a href="<?= site_url('contact') ?>">Contact</a></li>  
+                    <ul> 
+                        <li <?= ($uri->getSegment(1)=='')?'class="active"':''?>><a href="<?= site_url('/') ?>">Home</a></li>
+                        <li <?= ($uri->getSegment(1)=='shop')?'class="active"':''?>><a href="<?= site_url('shop') ?>">Shop</a></li>  
+                        <li <?= ($uri->getSegment(1)=='contact')?'class="active"':''?>><a href="<?= site_url('contact') ?>">Contact</a></li>  
                         <?php if($session->get('isLoggedIn')): ?> 
-                        <li><a href="<?= site_url('transaction') ?>">Transaction</a></li>
+                        <li <?= ($uri->getSegment(1)=='transaction')?'class="active"':''?>><a href="<?= site_url('transaction') ?>">Transaction</a></li>
                         <?php endif ?>
                     </ul>
                 </nav>
