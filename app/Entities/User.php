@@ -1,4 +1,6 @@
-<?php namespace App\Entities;
+<?php
+
+namespace App\Entities;
 
 use CodeIgniter\Entity;
 
@@ -8,7 +10,7 @@ class User extends Entity
     {
         $salt = uniqid('', true);
         $this->attributes['salt'] = $salt;
-        $this->attributes['password'] = md5($salt.$pass);
+        $this->attributes['password'] = md5($salt . $pass);
 
         return $this;
     }

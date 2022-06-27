@@ -7,7 +7,7 @@
     <meta name="keywords" content="Fashi, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Toko Online</title>
+    <title>Fashi | Template</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
@@ -30,11 +30,17 @@
         <div class="loader"></div>
     </div>
 
-    <?= $this->include('components/header') ?>  
+    <!-- Header Section Begin -->
+    <?= $this->include('components/header') ?>
+    <!-- Header End -->
 
+    <!-- Main Content -->
     <?= $this->renderSection('content') ?>
+    <!-- Main Content End -->
 
-    <?= $this->include('components/footer') ?> 
+    <!-- Footer Section Begin -->
+    <?= $this->include('components/footer') ?>
+    <!-- Footer Section End -->
 
     <!-- Js Plugins -->
     <script src="<?= base_url('fashi-master/js/jquery-3.3.1.min.js') ?>"></script>
@@ -47,7 +53,7 @@
     <script src="<?= base_url('fashi-master/js/jquery.slicknav.js') ?>"></script>
     <script src="<?= base_url('fashi-master/js/owl.carousel.min.js') ?>"></script>
     <script src="<?= base_url('fashi-master/js/main.js') ?>"></script>
-	<?= $this->renderSection('script') ?>
+    <?= $this->renderSection('script') ?>
 </body>
 
 </html>

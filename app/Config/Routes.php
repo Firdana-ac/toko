@@ -37,20 +37,22 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('login', 'Auth::login');
-$routes->add('login', 'Auth::login');
+$routes->add('login', 'Auth::login'); // untuk ngepost data
 $routes->get('register', 'Auth::register');
 $routes->add('register', 'Auth::register');
 $routes->get('logout', 'Auth::logout');
+
 $routes->get('shop', 'Shop::index');
 $routes->get('shop/category/(:segment)', 'Shop::category/$1');
 $routes->get('shop/product/(:segment)', 'Shop::product/$1');
 $routes->get('shop/getcity', 'Shop::getcity');
 $routes->get('shop/getcost', 'Shop::getcost');
-$routes->get('transaction', 'Transaksi::index');
-$routes->get('invoice/(:segment)', 'Transaksi::invoice');
-$routes->add('buy', 'Transaksi::buy');
-$routes->add('komentar/create', 'Komentar::create');
 
+$routes->get('transaction', 'Transaksi::index', ['filter' => 'auth']);
+$routes->get('invoice/(:segment)', 'Transaksi::invoice', ['filter' => 'auth']);
+$routes->add('buy', 'Transaksi::buy', ['filter' => 'auth']);
+$routes->add('komentar/create', 'Komentar::create');
+$routes->get('contact', 'Home::contact');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
