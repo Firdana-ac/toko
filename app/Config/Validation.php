@@ -41,6 +41,7 @@ class Validation extends BaseConfig
     //--------------------------------------------------------------------
     // Rules
     //--------------------------------------------------------------------
+
     public $register = [
         'username' => [
             'rules' => 'required|min_length[5]',
@@ -48,20 +49,20 @@ class Validation extends BaseConfig
         'password' => [
             'rules' => 'required',
         ],
-        'repeatPassword'=>[
+        'repeatPassword' => [
             'rules' => 'required|matches[password]',
         ],
     ];
 
     public $register_errors = [
         'username' => [
-            'required' =>'{field} Harus Diisi',
+            'required' => '{field} Harus Diisi',
             'min_length' => '{field} Minimal 5 Karakter',
         ],
         'password' => [
             'required' => '{field} Harus Diisi',
         ],
-        'repeatPassword'=>[
+        'repeatPassword' => [
             'required' => '{field} Harus Diisi',
             'matches' => '{field} Tidak Match Dengan Password'
         ],
@@ -74,11 +75,11 @@ class Validation extends BaseConfig
         'password' => [
             'rules' => 'required',
         ],
-    ]; 
+    ];
 
     public $login_errors = [
         'username' => [
-            'required' =>'{field} Harus Diisi',
+            'required' => '{field} Harus Diisi',
             'min_length' => '{field} Minimal 5 Karakter',
         ],
         'password' => [
@@ -87,29 +88,29 @@ class Validation extends BaseConfig
     ];
 
     public $transaksi = [
-		'id_barang' => [
-			'rules' => 'required',
-		],
-		'id_pembeli' => [
-			'rules' => 'required',
-		],
-		'jumlah'=> [
-			'rules' => 'required',
-		],
-		'total_harga'=> [
-			'rules' => 'required',
-		],
-		'alamat'=> [
-			'rules' => 'required',
-		],
-		'ongkir'=> [
-			'rules' => 'required',
-		]
-	];
+        'id_barang' => [
+            'rules' => 'required',
+        ],
+        'id_pembeli' => [
+            'rules' => 'required',
+        ],
+        'jumlah' => [
+            'rules' => 'required',
+        ],
+        'total_harga' => [
+            'rules' => 'required',
+        ],
+        'alamat' => [
+            'rules' => 'required',
+        ],
+        'ongkir' => [
+            'rules' => 'required',
+        ]
+    ];
 
     public $komentar = [
-		'komentar' =>[
-			'rules' => 'required',
-		],
-	];
+        'komentar' => [
+            'rules' => 'required',
+        ],
+    ];
 }

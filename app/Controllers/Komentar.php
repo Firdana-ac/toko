@@ -1,26 +1,26 @@
 <?php
+
 namespace App\Controllers;
 
 class Komentar extends BaseController
 {
-	public function __construct()
-	{
-		helper('form');
-		$this->validation = \Config\Services::validation();
-		$this->session = session();
+    public function __construct()
+    {
+        helper('form');
+        $this->validation = \Config\Services::validation();
+        $this->session = session();
     }
 
-    public function create(){ 
-        $model = new \App\Models\KomentarModel(); 
+    public function create()
+    {
+        $model = new \App\Models\KomentarModel();
 
-        if($this->request->getPost())
-        {
+        if ($this->request->getPost()) {
             $data = $this->request->getPost();
             $this->validation->run($data, 'komentar');
             $errors = $this->validation->getErrors();
 
-            if(!$errors)
-            {
+            if (!$errors) {
                 $komentarEntity = new \App\Entities\Komentar();
 
                 $komentarEntity->fill($data);
@@ -30,11 +30,10 @@ class Komentar extends BaseController
 
                 $model->save($komentarEntity);
 
-                $segments = ['shop','product', $this->request->getPost('id_barang')];
+                $segments = ['shop', 'product', $this->request->getPost('id_barang')];
 
                 return redirect()->to(site_url($segments));
             }
-        } 
+        }
     }
-
 }
